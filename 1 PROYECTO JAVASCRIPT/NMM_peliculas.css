@@ -1,0 +1,289 @@
+/* CSS VARIABLES */
+:root {
+  --primary: #141414;
+  --light: #f3f3f3;
+  --dark: #686868;
+  --accent: #e50914;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary);
+  color: var(--light);
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-y: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  padding-top: 60px;
+  font-weight: 600;
+}
+
+.wrapper {
+  display: flex;
+}
+
+header {
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 150%;
+  z-index: 2;
+}
+
+.nmmLogo {
+  object-fit: cover;
+  width: 100px;
+  max-height: 100%;
+}
+
+.nmmLogo img {
+  height: 100px;
+}
+
+#logo {
+  color: var(--accent);
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+}
+
+.zona_filtros {
+  width: 100%;
+}
+
+.main-nav,
+.sub-nav {
+  padding: 0 20px;
+}
+
+.main-nav a,
+.sub-nav a {
+  color: var(--light);
+  text-decoration: none;
+  margin: 5px;
+}
+
+.main-nav a:hover,
+.sub-nav a:hover {
+  color: var(--dark);
+}
+
+.main-container {
+  padding: 50px;
+  flex-grow: 1;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.box {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+}
+
+.box a {
+  transition: transform 0.3s;
+}
+
+.box a:hover {
+  transition: transform 0.3s;
+  -ms-transform: scale(1.4);
+  -webkit-transform: scale(1.4);
+  transform: scale(1.4);
+}
+
+.box img {
+  width: 100%;
+  height: 150px;
+  margin: 5px;
+}
+
+.link {
+  padding: 50px;
+}
+
+.sub-links ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.sub-links a {
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.sub-links a:hover {
+  color: var(--dark);
+  text-decoration: underline;
+}
+
+.logos a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.logo {
+  color: var(--dark);
+  width: 30px;
+}
+
+.logos {
+  margin-top: 20px;
+}
+
+.logos img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.logos img:hover {
+  transform: scale(1.2);
+}
+
+footer {
+  text-align: center;
+  color: var(--dark);
+  margin: 0;
+  background-color: #181818;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.user-img img {
+  width: 30px;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  left: 0;
+}
+
+.zona_filtros {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.generos_filtros {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.eliminar_filtro,
+.buscar_genero {
+  text-align: center;
+  font-size: 30px;
+}
+
+#btn_eliminar_filtro,
+#btn_buscar_genero {
+  padding: 15px 30px;
+  background-color: #c50f0f;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.3s;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#btn_eliminar_filtro:hover,
+#btn_buscar_genero:hover {
+  background-color: #101310;
+}
+
+.main {
+  font-family: Arial;
+  width: 65%;
+}
+
+h3 {
+  background: var(--primary);
+  color: #ee0909;
+  font-size: 50px;
+  line-height: 10px;
+  margin: 2px;
+  padding: 2%;
+  position: static;
+  text-align: center;
+}
+
+h4 {
+  background: var(--primary);
+  color: #ee0909;
+  font-size: 50px;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .zona_filtros {
+    width: 100%;
+  }
+
+  .box {
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .main {
+    width: 100%;
+  }
+
+  .zona_filtros {
+    width: 100%;
+  }
+
+  .box {
+    grid-template-columns: repeat(1, minmax(100px, 1fr));
+  }
+}

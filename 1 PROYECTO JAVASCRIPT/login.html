@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="nmm_login.css">
+  <link rel="icon" type="image/png" href="img\NMM_icono.png">
+  <title>NMM-Login</title>
+  <script>
+
+    var formEmail;
+    var formPasswd;
+    var object = {};
+    var objectUser = [];
+    var objectEmail = [];
+    var objectPasswd = [];
+
+    function getDataForm()
+    {
+        event.preventDefault();
+        formEmail = document.getElementById("email").value;
+        formPasswd = document.getElementById("passwd").value;
+        getDataWeb();
+    }
+
+    function getDataWeb()
+    {
+        fetch("https://opensheet.elk.sh/1GQ5NuWgszLIv40-j8ZBgXvsIZSUZimaH94KMpCZ-F90/datos")
+        .then((res) => res.json())
+        .then((data) =>
+        {
+            data.forEach((row) =>
+            {
+                object = JSON.parse(JSON.stringify(row));
+                objectUser.push(object.user);
+                objectEmail.push(object.email);
+                objectPasswd.push(object.passwd);
+            });
+            compareData();
+        });
+    }
+
+    function compareData()
+    {
+        var found = false;
+        var iterator = 0;
+        var length = objectEmail.length;
+
+        /* Se supone que en el formulario se rellenan todos los campos pq estan requeridos
+        entonces se supone que tengo que tener el mismo numeros de campos en ambas arrays (listas), objectUser y objectPasswd, por tanto no es necesario iterar ambas y lo hago con un iterador comun
+        */
+
+        while((!found) && (iterator < length))
+        {
+            if((formEmail === objectEmail[iterator]) && (formPasswd === objectPasswd[iterator]))
+            {
+                found = true;
+            }
+            iterator++;
+        }
+        if(found)
+        {
+            window.location.href = "NMM_Pagina_principal.html";
+        }
+        else
+        {
+            alert("Aun no estas registrado");
+        }
+    }
+
+  </script>
+</head>
+
+<!--Contenido Principal-->
+
+<body>
+  <div class="container">
+    <img src="img\NMM.png" />
+    <form onsubmit="getDataForm(event)" class="container">
+      <input type="email" placeholder="E-mail" required autocomplete="on" id="email"/>
+      <input type="password" placeholder="Contraseña" required autocomplete="on" id="passwd">
+      <input type="submit" value="Iniciar Sesión">
+    </form>
+  </div>
+  <div class="registra">
+    <a href="sign_in_NMM.html">Registrarse</a>
+  </div>
+
+  <!--Footer-->
+  <footer>
+    <p>&copy 2024-2024 NMM, Inc.
+      Nazaret Andrades González &copy 2024
+      Manuel García Merlo &copy 2024
+      Miguel Ángel Ruíz Aguilar &copy 2024
+    </p>
+    <a href="NMM_Pagina_principal.html">Página Principal</a>
+    <div class="logos">
+      <a href="https://www.facebook.com"><img src="img/facebook.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com"><img src="img/instagram.png" alt="Instagram"></a>
+      <a href="https://www.twitter.com"><img src="img/twitter.png" alt="Twitter"></a>
+      <a href="https://www.youtube.com"><img src="img/youtube.png" alt="YouTube"></a>
+    </div>
+  </footer>
+</body>
+</html>
